@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\lib\game.lib.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="autofac" Version="5.2.0" />
+    <PackageReference Include="nlog" Version="4.7.2" />
+    <PackageReference Include="nlog.config" Version="4.7.2" />
+    <Content Include="*.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <OutDir>../../build</OutDir>
+    <BaseIntermediateOutputPath>../../build/game</BaseIntermediateOutputPath>
+  </PropertyGroup>
+
+</Project>

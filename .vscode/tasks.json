@@ -1,0 +1,86 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/src/game/crazycards.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "clean",
+            "command": "dotnet",
+            "type": "process",
+            "args": [ 
+                "clean",
+                "${workspaceFolder}/src/game/crazycards.csproj"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "clean-tests",
+            "command": "dotnet",
+            "type": "process",
+            "args": [ 
+                "clean",
+                "${workspaceFolder}/tests/gametests.csproj"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "command": "Remove-Item",
+            "label": "rm-tests",
+            "type": "shell",
+            "args": [
+                "${workspaceFolder}/tests/run/*",
+                "-Recurse",
+                "-Force"
+            ],
+            "dependsOn": [
+                "clean-tests"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "publish",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "publish",
+                "${workspaceFolder}/src/game/crazycards.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "watch",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "watch",
+                "run",
+                "${workspaceFolder}/src/game/crazycards.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "test",
+            "type": "process",
+            "command": "dotnet",
+            "problemMatcher": "$msCompile",
+            "args": [ 
+                "test",
+                "${workspaceFolder}/tests/gametests.csproj"
+            ]
+          }
+    ]
+}
